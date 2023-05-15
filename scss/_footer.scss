@@ -1,0 +1,16 @@
+.container-foot {
+  background-color: #5e8385;
+}
+.foot-fuente {
+  color: $font-black;
+  font-family: $font;
+  @include font-size($small);
+}
+.foot-div {
+  @include centrar;
+}
+.foot-icon {
+  font-size: 24px;
+  color: black;
+  margin: auto 10px;
+}

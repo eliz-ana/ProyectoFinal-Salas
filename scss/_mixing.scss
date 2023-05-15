@@ -1,0 +1,17 @@
+@mixin medidas($width, $height) {
+  width: $width;
+  height: $height;
+}
+@mixin centrar() {
+  justify-content: center;
+  align-items: center;
+}
+@mixin font-size($size) {
+  font-size: $size;
+  text-align: center;
+}
+$xsmall: 16px;
+$small: 20px;
+$medium: 30px;
+$big: 48px;
+$small-font-size: 20px;

@@ -1,0 +1,49 @@
+.header-bg {
+  background-color: #5e8385;
+}
+.btn {
+  color: $font-black;
+}
+
+.header-envios {
+  text-align: center;
+  background-color: #ff35ba;
+  font-family: $font;
+}
+.nav-link,
+.dropdown-item {
+  font-family: $font;
+  @include font-size($small);
+}
+.navbar-brand {
+  display: none;
+}
+.navbar-brand img {
+  @include medidas(50px, auto);
+}
+.logo img {
+  @include medidas(80px, auto);
+}
+.header-cart i {
+  font-size: 2rem;
+  color: $font-black;
+}
+.nros {
+  color: white;
+}
+.header-registrarse,
+.header-iniciarSesion {
+  text-decoration: none;
+  color: $font-black;
+  font-family: $font;
+  @include font-size($small);
+}
+
+.header-suma-cart {
+  display: inline-block;
+  color: white;
+  @include medidas(24px, 24px);
+  background-color: #ff35ba;
+  text-align: center;
+  margin-right: 1rem;
+}

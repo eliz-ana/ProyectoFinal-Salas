@@ -6,10 +6,277 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- link bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <!-- link bootstrap-icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- link de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="prueba">hola</div>
+    <header class="header-bg">
+        <div class="header-envios">
+            Envios sin cargo desde 30.000 pesos - <span class="nros">3</span> y <span class="nros">6</span> cuotas
+            sin interes
+
+        </div>
+
+        <div class="iniciar-sesion d-flex justify-content-lg-between justify-content-center align-items-center">
+            <a class="logo" href="index.html"><img src="#" alt="logo "></a>
+
+            <div class="header-registro">
+                <a class="header-registrarse me-1" href="#">REGISTRARSE</a>
+                <a class="header-iniciarSesion ms-1" href="#">INICIAR SESION</a>
+
+                <button type="button" class="btn btn-link header-cart" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    <i class="bi bi-cart3"></i>
+
+                </button>
+
+                <!-------------- Modal shopping-cart-------->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Carrito de compras</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="producto-modal ">
+                                    <div class="row-card row">
+
+                                        <div class="col-4">
+                                            <img src="#" alt="">
+                                        </div>
+                                        <div class="col-8">
+                                            <p class="modal-nombre"></p>
+                                            <p class="modal-precio  position-absolute "></p>
+
+                                            <div class="input-group achicar mb-3">
+                                                <button type="button" class="btn btn-link"><i
+                                                        class="bi bi-dash"></i></button>
+                                                <input type="text" class="form-control" aria-label="Username"
+                                                    aria-describedby="basic-addon1">
+
+                                                <button type="button" class="btn btn-link"><i
+                                                        class="bi bi-plus"></i></button>
+                                            </div>
+                                            <button type="button" id="btn-trash"
+                                                class="btn position-absolute top-0 end-0 btn-link">
+                                                <i class="bi bi-trash btn-eliminar"></i>
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vaciar
+                                    carrito</button>
+                                <button type="button" class="btn btn-primary">Finalizar compra</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-suma-cart rounded-circle">0</div>
+            </div>
+
+
+        </div>
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="#" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/productos.html">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/preguntasFrecuentes.html">Preguntas Frecuentes</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- whatsup -->
+        <a class="whatsup-fixed" href="https://wa.me/5491160245428" target="_blank"><i
+                class="bi icon-whatsup-fixed bi-whatsapp"></i></a>
+
+        <!-- slide de info gral -->
+        <div id="carouselExampleCaptions" class="carousel  carousel-dark slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="imagenes/fondos/fondosucio.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-md-block">
+                        <h2>SOMOS "MARCA"</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="imagenes/fondos/fondosucio.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption  d-md-block">
+                        <h2>ENVIOS SIN CARGO</h2>
+                        <p>Hacemos envios sin cargo a todo el pais a partir de los 30 mil pesos</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="imagenes/fondos/fondosucio.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption  d-md-block">
+                        <h2>CUOTAS SIN INTERES</h2>
+                        <p>Tenemos 3 y 6 cuotas sin interes</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="bg">
+            <!-- section de info-gral  -->
+            <section class="hero-infoGral d-flex flex-column flex-sm-row justify-content-center container-fluid pb-3">
+                <div class="hero-infoGral-items">
+                    <i class="bi hero-infoGral-img bi-truck"></i>
+                    <h4 class="hero-infoGral-h4">ENVIAMOS TU COMPRA</h4>
+                    <P class="hero-infoGral-p">Entrega a todo el pais</P>
+                </div>
+
+                <div class="hero-infoGral-items items-medio">
+                    <i class="bi hero-infoGral-img bi-credit-card"></i>
+                    <h4 class="hero-infoGral-h4">PAGA COMO QUIERAS</h4>
+                    <p class="hero-infoGral-p">Aceptamos todos los medios de pagos</p>
+                </div>
+
+                <div class="hero-infoGral-items">
+                    <i class="bi hero-infoGral-img bi-shield-lock"></i>
+                    <h4 class="hero-infoGral-h4">COMPRA CON TRANQUILIDAD</h4>
+                    <p class="hero-infoGral-p">Tus datos estan siempre protegidos</p>
+                </div>
+
+            </section>
+
+        </div>
+        <div class="container">
+            <div class="input-group buscador">
+                <input type="text" id="input-buscar" class="form-control w-50" placeholder="Buscar"
+                    aria-label="Recipient's username with two button addons">
+                <button class="btn btn-outline-secondary" id="boton-buscar" type="button">Buscar</button>
+                <button class="btn btn-outline-secondary" id="ver-todo" type="button">Mostrar Todo</button>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="resultado container">
+            <h5 class="info-resultado"></h5>
+        </div>
+
+
+        <!-- -----------------------------PRODUCT CARDS--------------- -->
+
+        <div id="cards" class="card-container container">
+
+            <!-- ---------------este es el contenedor de las tarjetas del catalogo ---------->
+
+
+        </div>
+        <!-- section newsletter -->
+        <section class="newsletter">
+            <h2 class="big-text"> Recibí todas nuestras ofertas</h2>
+            <p class="small-p"> Enterate de todas las ofertas que tenemos ¡Registrate y empeza a disfrutarlas!</p>
+
+            <div class="input-group newsletter-email input-group-lg">
+                <span class="input-group-text texto-email" id="inputGroup-sizing-lg">Email</span>
+                <input type="text" class="form-control email" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-lg">
+
+            </div>
+
+        </section>
+
+    </main>
+    <footer>
+        <div class="container-fluid container-foot">
+            <div class="row ">
+                <div class="foot-direccion col-sm-12 col-md-6 d-flex foot-div mt-2 ">
+                    <p class="foot-fuente">Direccion: Av. Xxxx 1111</p>
+
+                </div>
+                <div class="foot-horario col-sm-12 col-md-6 d-flex foot-div  mt-2 ">
+                    <p class="foot-fuente">Horarios: Lunes a Sabado de 10 a 20 Hs </p>
+
+                </div>
+
+                <div class="foot-iconos col-sm-12 col-md-6   d-flex foot-div">
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i
+                            class="bi iconos bi-whatsapp foot-icon"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i
+                            class="bi iconos bi-instagram foot-icon"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i
+                            class="bi iconos bi-geo-alt-fill foot-icon"></i></a>
+
+                </div>
+                <div class="foot-copyrigth col-sm-12 col-md-6 d-flex foot-div  mt-2">
+                    <p class="foot-fuente">Copyright © 2023 by AnaPrograma</p>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+    </footer>
+    <!-- script de bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
+
+    <!-- script javaScript -->
+    <script src="app/app.js"></script>
 
 </body>
 
