@@ -83,13 +83,16 @@ const productos = [
 //-----llamado de html-------------
 
 const cardContainer = document.querySelector(".card-container");
+//---capturas para el buscador
 const inputBuscar = document.querySelector("#input-buscar");
 const botonBuscar = document.querySelector("#boton-buscar");
 const verTodo = document.querySelector("#ver-todo");
 const infoResultado = document.querySelector(".info-resultado");
+//---botones agregar de las cards----
+let btnAgregar = document.querySelectorAll(".btn-card");
 
 //   ---------   generar card y contenido -----------
-//   ---------   generar card y contenido -----------
+
 function cargaDeCards(productolink) {
   productolink.forEach((producto) => {
     const div = document.createElement("div");
@@ -107,6 +110,8 @@ function cargaDeCards(productolink) {
     `;
     cardContainer.appendChild(div);
   });
+  actualizarBtnAgregar();
+  console.log(btnAgregar);
 }
 //------llamado a la funcion para ver las cards-----
 cargaDeCards(productos);
@@ -119,20 +124,20 @@ const filtrar = () => {
   console.log(inputBuscar.value);
   //--la bandera es para el .info-resultado----
   let bandera = false;
-  for (producto of productos) {
-    let nombre = producto.nombre;
+  for (prod of productos) {
+    let nombre = prod.nombre;
     if (nombre.indexOf(texto) !== -1) {
       bandera = true;
       console.log(nombre);
       const div = document.createElement("div");
       div.classList.add("card");
       div.innerHTML = `
-    <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+    <img src="${prod.imagen}" class="card-img-top" alt="${prod.nombre}">
     <div class="card-body">
-        <h5 class="card-title">${producto.nombre}</h5>
-        <p class="card-text">${producto.descripcion}</p>
-        <p class="card-precio">Precio: $ ${producto.precio}</p>
-        <button type="button" id="${producto.id}" class="btn btn-card btn-info">Comprar</button>
+        <h5 class="card-title">${prod.nombre}</h5>
+        <p class="card-text">${prod.descripcion}</p>
+        <p class="card-precio">Precio: $ ${prod.precio}</p>
+        <button type="button" id="${prod.id}" class="btn btn-card btn-info">Comprar</button>
         
     </div>
   
@@ -146,6 +151,8 @@ const filtrar = () => {
     `;
   }
   inputBuscar.value = "";
+  actualizarBtnAgregar();
+  console.log(btnAgregar);
 };
 
 botonBuscar.addEventListener("click", filtrar);
@@ -154,4 +161,21 @@ verTodo.addEventListener("click", function () {
   cardContainer.innerHTML = "";
   cargaDeCards(productos);
 });
-//-----agregar evento al boton comprar-----
+//-----actualizar boton comprar-----
+function actualizarBtnAgregar() {
+  btnAgregar = document.querySelectorAll(".btn-card");
+
+  btnAgregar.forEach((boton) => {
+    boton.addEventListener("click", agregarCarrito);
+  });
+}
+//----array vacio.---
+const carrito = [];
+
+function agregarCarrito(evento) {
+  const idbtn = parseInt(evento.currentTarget.id);
+  const agregarProd = productos.find((producto) => producto.id === idbtn);
+  console.log(agregarProd);
+  carrito.push(agregarProd);
+  console.log(carrito);
+}
