@@ -89,6 +89,7 @@ const verTodo = document.querySelector("#ver-todo");
 const infoResultado = document.querySelector(".info-resultado");
 
 //   ---------   generar card y contenido -----------
+//   ---------   generar card y contenido -----------
 function cargaDeCards(productolink) {
   productolink.forEach((producto) => {
     const div = document.createElement("div");
@@ -99,7 +100,8 @@ function cargaDeCards(productolink) {
         <h5 class="card-title">${producto.nombre}</h5>
         <p class="card-text">${producto.descripcion}</p>
         <p class="card-precio">Precio: $ ${producto.precio}</p>
-        <a href="#"  class="btn btn-primary btn-card">Comprar</a>
+        <button type="button" id="${producto.id}" class="btn btn-card btn-info">Comprar</button>
+        
     </div>
   
     `;
@@ -130,7 +132,8 @@ const filtrar = () => {
         <h5 class="card-title">${producto.nombre}</h5>
         <p class="card-text">${producto.descripcion}</p>
         <p class="card-precio">Precio: $ ${producto.precio}</p>
-        <a href="#"  class="btn btn-primary btn-card">Comprar</a>
+        <button type="button" id="${producto.id}" class="btn btn-card btn-info">Comprar</button>
+        
     </div>
   
     `;
@@ -146,7 +149,9 @@ const filtrar = () => {
 };
 
 botonBuscar.addEventListener("click", filtrar);
+//-----ver todo en el filtro------
 verTodo.addEventListener("click", function () {
   cardContainer.innerHTML = "";
   cargaDeCards(productos);
 });
+//-----agregar evento al boton comprar-----

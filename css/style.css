@@ -60,62 +60,6 @@
   font-size: 35px;
 }
 
-.link-imagen {
-  position: relative;
-  overflow: hidden;
-}
-
-.link-img-fondo {
-  width: 100%;
-  height: 512px;
-  object-fit: cover;
-  transition: 0.5s;
-}
-
-.link-img-fondo:hover {
-  transform: scale(1.1);
-}
-
-.texto-remeras,
-.btn-texto,
-.link-img-fondo {
-  position: absolute;
-}
-
-.btn-texto {
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.texto-remeras {
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-decoration: none;
-  color: black;
-  font-size: 48px;
-  text-align: center;
-  font-weight: 400;
-}
-
-.btn-texto,
-.small-p {
-  font-size: 20px;
-  text-align: center;
-  font-weight: 400;
-  font-family: "Poppins", sans-serif;
-  text-align: center;
-}
-
-.link-remeras {
-  display: grid;
-  gap: 1rem;
-  grid-auto-rows: 32rem;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 25rem), 45%));
-}
-
 .newsletter {
   background-color: #155052;
 }
