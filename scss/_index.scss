@@ -79,9 +79,17 @@
   padding-bottom: 10px;
 }
 // modal carrito de compras
-
+.row-card {
+  position: relative;
+}
 .btn-eliminar {
   font-size: 24px;
+}
+.bi-plus {
+  font-size: 25px;
+}
+.bi-dash {
+  font-size: 25px;
 }
 .achicar {
   width: 120px;
@@ -103,4 +111,7 @@
 }
 .info-resultado {
   text-align: center;
+}
+.no-mostrar {
+  display: none;
 }

@@ -52,46 +52,49 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <div class="producto-modal ">
-                                    <div class="row-card row">
+                                <h5 class="modal-vacio ">Su carrito esta vacio</h5>
+                                <div class="producto-modal  ">
+                                    <!-- <div class="row-card row">
 
                                         <div class="col-4">
                                             <img src="#" alt="">
                                         </div>
                                         <div class="col-8">
                                             <p class="modal-nombre"></p>
-                                            <p class="modal-precio  position-absolute "></p>
+                                            <p class="modal-precio  position-absolute ">precio: </p>
 
                                             <div class="input-group achicar mb-3">
-                                                <button type="button" class="btn btn-link"><i
+                                                <button type="button" id="restar-cantidad" class="btn btn-link"><i
                                                         class="bi bi-dash"></i></button>
-                                                <input type="text" class="form-control" aria-label="Username"
-                                                    aria-describedby="basic-addon1">
 
-                                                <button type="button" class="btn btn-link"><i
+                                                <h5 class="modal-cantidad"></h5>
+
+                                                <button type="button" id="sumar-cantidad" class="btn btn-link"><i
                                                         class="bi bi-plus"></i></button>
                                             </div>
-                                            <button type="button" id="btn-trash"
+                                            <button type="button" id=""
                                                 class="btn position-absolute top-0 end-0 btn-link">
                                                 <i class="bi bi-trash btn-eliminar"></i>
                                             </button>
                                         </div>
+                                        
 
-                                    </div>
+                                    </div> -->
 
 
                                 </div>
+                                <div class="total">Subtotal: </div>
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vaciar
+                                <button type="button" class="btn vaciado btn-secondary" data-bs-dismiss="modal">Vaciar
                                     carrito</button>
                                 <button type="button" class="btn btn-primary">Finalizar compra</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="header-suma-cart rounded-circle">0</div>
+                <div class="header-suma-cart suma-cart rounded-circle">0</div>
             </div>
 
 
@@ -277,6 +280,9 @@
 
     <!-- script javaScript -->
     <script src="app/app.js"></script>
+
+
+
 
 </body>
 
