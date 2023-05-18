@@ -5,7 +5,7 @@ const productos = [
     nombre: "remera",
     descripcion: "remera estampada",
     precio: 7000,
-    imagen: "../imagenes/ropa/remera5.jpg",
+    imagen: "imagenes/ropa/remera5.jpg",
   },
   {
     id: 1,
@@ -13,7 +13,7 @@ const productos = [
     nombre: "remera",
     descripcion: "remera gris",
     precio: 7000,
-    imagen: "../imagenes/ropa/2remera-gris.jpg",
+    imagen: "imagenes/ropa/2remera-gris.jpg",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const productos = [
     nombre: "remera",
     descripcion: "remera blanca",
     precio: 6000,
-    imagen: "../imagenes/ropa/1camiseta-blanca.jpg",
+    imagen: "imagenes/ropa/1camiseta-blanca.jpg",
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const productos = [
     nombre: "camisa",
     descripcion: "camisa blanca",
     precio: 16000,
-    imagen: "../imagenes/ropa/7camisa-blanca.jpg",
+    imagen: "imagenes/ropa/7camisa-blanca.jpg",
   },
   {
     id: 4,
@@ -53,7 +53,7 @@ const productos = [
     nombre: "pantalon",
     descripcion: "jean azul obscuro",
     precio: 23000,
-    imagen: "../imagenes/ropa/pantalonPortada.jpg",
+    imagen: "imagenes/ropa/pantalonPortada.jpg",
   },
   {
     id: 7,
@@ -61,7 +61,7 @@ const productos = [
     nombre: "bermuda",
     descripcion: "bermuda beige ",
     precio: 16000,
-    imagen: "../imagenes/ropa/bermudaBeige.jpg",
+    imagen: "imagenes/ropa/bermudaBeige.jpg",
   },
   {
     id: 8,
@@ -69,7 +69,7 @@ const productos = [
     nombre: "bermuda",
     descripcion: "bermuda negra",
     precio: 18000,
-    imagen: "../imagenes/ropa/bermuda2.jpg",
+    imagen: "imagenes/ropa/bermuda2.jpg",
   },
   {
     id: 9,
@@ -77,7 +77,7 @@ const productos = [
     nombre: "camisa",
     descripcion: "camisa azul",
     precio: 16000,
-    imagen: "../imagenes/ropa/camisa2.jpg",
+    imagen: "imagenes/ropa/camisa2.jpg",
   },
 ];
 //-----llamado de html-------------
