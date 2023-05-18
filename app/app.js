@@ -37,7 +37,7 @@ const productos = [
     nombre: "pantalon",
     descripcion: "jean claro",
     precio: 26000,
-    imagen: "../imagenes/ropa/9pantalon-jean.jpg",
+    imagen: "imagenes/ropa/9pantalon-jean.jpg",
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ const productos = [
     nombre: "pantalon",
     descripcion: "jean clasico",
     precio: 25000,
-    imagen: "../imagenes/ropa/10pantalon-jean.jpg",
+    imagen: "imagenes/ropa/10pantalon-jean.jpg",
   },
   {
     id: 6,
