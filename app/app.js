@@ -1,85 +1,3 @@
-const productos = [
-  {
-    id: 10,
-    stock: 10,
-    nombre: "remera",
-    descripcion: "remera estampada",
-    precio: 7000,
-    imagen: "imagenes/ropa/remera5.jpg",
-  },
-  {
-    id: 1,
-    stock: 10,
-    nombre: "remera",
-    descripcion: "remera gris",
-    precio: 7000,
-    imagen: "imagenes/ropa/2remera-gris.jpg",
-  },
-  {
-    id: 2,
-    stock: 10,
-    nombre: "remera",
-    descripcion: "remera blanca",
-    precio: 6000,
-    imagen: "imagenes/ropa/1camiseta-blanca.jpg",
-  },
-  {
-    id: 3,
-    stock: 10,
-    nombre: "camisa",
-    descripcion: "camisa blanca",
-    precio: 16000,
-    imagen: "imagenes/ropa/7camisa-blanca.jpg",
-  },
-  {
-    id: 4,
-    stock: 10,
-    nombre: "pantalon",
-    descripcion: "jean claro",
-    precio: 26000,
-    imagen: "imagenes/ropa/9pantalon-jean.jpg",
-  },
-  {
-    id: 5,
-    stock: 10,
-    nombre: "pantalon",
-    descripcion: "jean clasico",
-    precio: 25000,
-    imagen: "imagenes/ropa/10pantalon-jean.jpg",
-  },
-  {
-    id: 6,
-    stock: 10,
-    nombre: "pantalon",
-    descripcion: "jean azul obscuro",
-    precio: 23000,
-    imagen: "imagenes/ropa/pantalonPortada.jpg",
-  },
-  {
-    id: 7,
-    stock: 10,
-    nombre: "bermuda",
-    descripcion: "bermuda beige ",
-    precio: 16000,
-    imagen: "imagenes/ropa/bermudaBeige.jpg",
-  },
-  {
-    id: 8,
-    stock: 10,
-    nombre: "bermuda",
-    descripcion: "bermuda negra",
-    precio: 18000,
-    imagen: "imagenes/ropa/bermuda2.jpg",
-  },
-  {
-    id: 9,
-    stock: 10,
-    nombre: "camisa",
-    descripcion: "camisa azul",
-    precio: 16000,
-    imagen: "imagenes/ropa/camisa2.jpg",
-  },
-];
 //-----llamado de html-------------
 
 const cardContainer = document.querySelector(".card-container");
@@ -92,30 +10,40 @@ const infoResultado = document.querySelector(".info-resultado");
 let btnAgregar = document.querySelectorAll(".btn-card");
 //----sumador del carrito----
 let sumaCart = document.querySelector(".suma-cart");
+let productos = [];
 
 //   ---------   generar card y contenido -----------
 
-function cargaDeCards(productolink) {
-  productolink.forEach((producto) => {
+function obtenerProductos() {
+  return fetch("../app/product.json")
+    .then((response) => response.json())
+    .catch((error) => {
+      console.log("Error al obtener los productos:", error);
+      return [];
+    });
+}
+
+async function cargaDeCards() {
+  productos = await obtenerProductos();
+  productos.forEach((producto) => {
     const div = document.createElement("div");
     div.classList.add("card");
     div.innerHTML = `
-    <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
-    <div class="card-body">
-        <h5 class="card-title">${producto.nombre}</h5>
-        <p class="card-text">${producto.descripcion}</p>
-        <p class="card-precio">Precio: $ ${producto.precio}</p>
-        <button type="button" id="${producto.id}" class="btn btn-card btn-info">Comprar</button>
-        
-    </div>
-  
-    `;
+          <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+          <div class="card-body">
+            <h5 class="card-title">${producto.nombre}</h5>
+            <p class="card-text">${producto.descripcion}</p>
+            <p class="card-precio">Precio: $ ${producto.precio}</p>
+            <button type="button" id="${producto.id}" class="btn btn-card btn-info">Comprar</button>
+          </div>
+        `;
     cardContainer.appendChild(div);
   });
   actualizarBtnAgregar();
 }
-//------llamado a la funcion para ver las cards-----
-cargaDeCards(productos);
+
+// ------llamado a la funcion para ver las cards-----
+cargaDeCards();
 
 //-----filtrado de los productos-------
 const filtrar = () => {
@@ -270,11 +198,20 @@ if (prodCarrito) {
 } else {
   carrito = [];
 }
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", async () => {
   carrito = JSON.parse(localStorage.getItem("carritoStorage")) || [];
+
+  await cargaDeCards(); // Esperar a que se carguen las tarjetas antes de continuar
+
   sumadorCarrito();
   actualizarCarritoUI();
 });
+
+// window.addEventListener("DOMContentLoaded", () => {
+//   carrito = JSON.parse(localStorage.getItem("carritoStorage")) || [];
+//   sumadorCarrito();
+//   actualizarCarritoUI();
+// });
 //-----funcion para eliminar todos los producto con el mismo id---------------------
 function actualizarBtnEliminar() {
   btnEliminar = document.querySelectorAll(".btn-trash");
