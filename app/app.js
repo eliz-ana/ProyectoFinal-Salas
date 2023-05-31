@@ -15,7 +15,7 @@ let productos = [];
 //   ---------   generar card y contenido -----------
 
 function obtenerProductos() {
-  return fetch("../app/product.json")
+  return fetch("app/product.json")
     .then((response) => response.json())
     .catch((error) => {
       console.log("Error al obtener los productos:", error);
@@ -74,11 +74,8 @@ const filtrar = () => {
       cardContainer.appendChild(div);
     }
   }
-  if (!bandera) {
-    infoResultado.innerHTML = `
-    Elemento no localizado
-    `;
-  }
+  //---operador avanzado, es como un if sin else----
+  !bandera && (infoResultado.innerHTML = `Elemento no localizado`);
   inputBuscar.value = "";
   actualizarBtnAgregar();
 };
@@ -207,11 +204,6 @@ window.addEventListener("DOMContentLoaded", async () => {
   actualizarCarritoUI();
 });
 
-// window.addEventListener("DOMContentLoaded", () => {
-//   carrito = JSON.parse(localStorage.getItem("carritoStorage")) || [];
-//   sumadorCarrito();
-//   actualizarCarritoUI();
-// });
 //-----funcion para eliminar todos los producto con el mismo id---------------------
 function actualizarBtnEliminar() {
   btnEliminar = document.querySelectorAll(".btn-trash");
