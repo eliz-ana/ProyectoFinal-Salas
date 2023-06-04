@@ -64,13 +64,13 @@
   background-color: #155052;
 }
 
-.texto-email {
+.btn-newsletter {
   background-color: #ff35ba;
+  color: white;
   font-size: 20px;
   text-align: center;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  color: white;
 }
 
 .big-text {
@@ -85,6 +85,7 @@
 .small-p,
 .big-text {
   color: white;
+  text-align: center;
 }
 
 .newsletter-email {
@@ -141,7 +142,7 @@
   background-color: #5e8385;
 }
 
-.btn {
+.btn-link {
   color: black;
 }
 

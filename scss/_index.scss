@@ -54,14 +54,14 @@
 .newsletter {
   background-color: #155052;
 }
-
-.texto-email {
+.btn-newsletter {
   background-color: #ff35ba;
+  color: white;
   @include font-size($small);
   font-family: $font;
   font-weight: 500;
-  color: white;
 }
+
 .big-text {
   @include font-size($medium);
   font-family: $font;
@@ -72,6 +72,7 @@
 .small-p,
 .big-text {
   color: white;
+  text-align: center;
 }
 .newsletter-email {
   width: 60%;
@@ -83,6 +84,7 @@
 .row-card {
   position: relative;
 }
+
 .btn-eliminar {
   font-size: 24px;
 }

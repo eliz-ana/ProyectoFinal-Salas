@@ -18,7 +18,6 @@ function obtenerProductos() {
   return fetch("app/product.json")
     .then((response) => response.json())
     .catch((error) => {
-      console.log("Error al obtener los productos:", error);
       return [];
     });
 }
@@ -34,7 +33,7 @@ async function cargaDeCards() {
             <h5 class="card-title">${producto.nombre}</h5>
             <p class="card-text">${producto.descripcion}</p>
             <p class="card-precio">Precio: $ ${producto.precio}</p>
-            <button type="button" id="${producto.id}" class="btn btn-card btn-info">Comprar</button>
+            <button type="button" id="${producto.id}" class="btn btn-card btn-dark">Comprar</button>
           </div>
         `;
     cardContainer.appendChild(div);
@@ -117,6 +116,19 @@ function agregarCarrito(evento) {
       carrito.push(agregarProd);
     }
   }
+  Toastify({
+    text: "Se agrego al carrito",
+    duration: 3000,
+
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "linear-gradient(to right,#134E5E, #71B280)",
+    },
+    onClick: function () {}, // Callback after click
+  }).showToast();
   sumadorCarrito();
   localStorage.setItem("carritoStorage", JSON.stringify(carrito));
   actualizarCarritoUI();
@@ -138,6 +150,10 @@ const divTotal = document.querySelector(".total");
 let btnSumar = document.querySelectorAll(".btn-sumar");
 let btnRestar = document.querySelectorAll(".btn-restar");
 const prodCarrito = JSON.parse(localStorage.getItem("carritoStorage"));
+const newsEmail = document.querySelector("#news-email");
+const btnNews = document.querySelector("#btn-news");
+const btnfin = document.querySelector("#fin");
+let email;
 //--si hay algo en el carrito ----
 function actualizarCarritoUI() {
   productoModal.innerHTML = ""; // Limpiar el contenido actual del carrito
@@ -242,3 +258,61 @@ function sumaTotal() {
     0
   );
 }
+
+//-----capturar input mail ----
+newsEmail.addEventListener("input", (e) => {
+  email = e.target.value;
+});
+
+// ---informar al cliente si la captura fue correcta----
+
+btnNews.addEventListener("click", () => {
+  if (!email) {
+    Toastify({
+      text: "debe completar el campo",
+      duration: 3000,
+
+      close: true,
+      gravity: "bottom", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "linear-gradient(to right,#ff00cc, #333399)",
+      },
+      onClick: function () {}, // Callback after click
+    }).showToast();
+  } else {
+    Toastify({
+      text: "su mail fue registrado correctamente",
+      duration: 3000,
+
+      close: true,
+      gravity: "bottom", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "linear-gradient(to right,#ff00cc, #333399)",
+      },
+      onClick: function () {}, // Callback after click
+    }).showToast();
+  }
+});
+
+//-----btn para finalizar compra------
+
+btnfin.addEventListener("click", async function () {
+  if (productoModal.innerHTML === "") {
+    Swal.fire("El carrito esta vacio");
+  } else {
+    const { value: email } = await Swal.fire({
+      title: "Ingresar email",
+      input: "email",
+      inputLabel: "Ingresar email",
+      inputPlaceholder: "Ingrese su email",
+    });
+
+    if (email) {
+      Swal.fire(`Le llegara un mail para confirmar su compra: ${email}`);
+    }
+  }
+});
