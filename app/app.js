@@ -1,13 +1,12 @@
 //-----llamado de html-------------
 
 const cardContainer = document.querySelector(".card-container");
-//---capturas para el buscador
+//---capturas para el buscador---------
 const inputBuscar = document.querySelector("#input-buscar");
 const botonBuscar = document.querySelector("#boton-buscar");
 const verTodo = document.querySelector("#ver-todo");
 const infoResultado = document.querySelector(".info-resultado");
-//---botones agregar de las cards----
-let btnAgregar = document.querySelectorAll(".btn-card");
+
 //----sumador del carrito----
 let sumaCart = document.querySelector(".suma-cart");
 let productos = [];
@@ -42,7 +41,7 @@ async function cargaDeCards() {
 }
 
 // ------llamado a la funcion para ver las cards-----
-cargaDeCards();
+// cargaDeCards();
 
 //-----filtrado de los productos-------
 const filtrar = () => {
@@ -81,10 +80,7 @@ const filtrar = () => {
 
 botonBuscar.addEventListener("click", filtrar);
 //-----ver todo en el filtro------
-verTodo.addEventListener("click", function () {
-  cardContainer.innerHTML = "";
-  cargaDeCards(productos);
-});
+verTodo.addEventListener("click", cargaDeCards);
 //-----actualizar boton comprar-----
 function actualizarBtnAgregar() {
   btnAgregar = document.querySelectorAll(".btn-card");
@@ -107,15 +103,13 @@ function agregarCarrito(evento) {
       //--si esta aumento cantidad
       const index = carrito.findIndex((producto) => producto.id === idbtn);
       carrito[index].cantidad++;
-      const updatedProd = Object.assign({}, agregarProd); // Copiar las propiedades del objeto agregarProd
-      updatedProd.stock--; // Modificar el stock en el nuevo objeto
-      productos[index] = updatedProd;
     } else {
       // sino esta hago el push
       agregarProd.cantidad = 1;
       carrito.push(agregarProd);
     }
   }
+  //---informar al cliente que se agrego el producto-----
   Toastify({
     text: "Se agrego al carrito",
     duration: 3000,
@@ -154,6 +148,7 @@ const newsEmail = document.querySelector("#news-email");
 const btnNews = document.querySelector("#btn-news");
 const btnfin = document.querySelector("#fin");
 let email;
+let tot = 0;
 //--si hay algo en el carrito ----
 function actualizarCarritoUI() {
   productoModal.innerHTML = ""; // Limpiar el contenido actual del carrito
@@ -252,11 +247,13 @@ function vaciar() {
 }
 
 // ---sumar todo lo que esta en el carrito
+
 function sumaTotal() {
-  divTotal.innerText = carrito.reduce(
+  tot = carrito.reduce(
     (acc, producto) => acc + producto.precio * producto.cantidad,
     0
   );
+  divTotal.textContent = "Subtotal: $" + tot;
 }
 
 //-----capturar input mail ----

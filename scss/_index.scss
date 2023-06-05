@@ -37,7 +37,7 @@
   font-size: 36px;
   color: #4383e0;
 }
-// whatsup fixed
+// -----whatsup fixed------------
 .whatsup-fixed {
   position: absolute;
   position: fixed;
@@ -50,7 +50,7 @@
   font-size: 35px;
 }
 
-// newsletter
+// ------------newsletter-------------
 .newsletter {
   background-color: #155052;
 }
@@ -79,7 +79,7 @@
   margin: 0 auto;
   padding-bottom: 10px;
 }
-// modal carrito de compras
+//-------- modal carrito de compras------------
 
 .row-card {
   position: relative;
@@ -97,17 +97,31 @@
 .achicar {
   width: 120px;
 }
+.modal-nombre {
+  font-family: $font;
+  font-weight: bold;
+  font-size: 20px;
+}
+.modal-cantidad {
+  font-family: $font;
+  font-weight: 300;
+  font-size: 16px;
+}
 .modal-precio {
   display: inline-block;
   left: 70%;
+  font-family: $font;
 }
 .img-modal img {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
-
-//------buscador-----
+.total {
+  font-family: $font;
+  font-size: 20px;
+}
+//--------buscador-----------
 .buscador {
   width: 50%;
   margin: 0 auto;
