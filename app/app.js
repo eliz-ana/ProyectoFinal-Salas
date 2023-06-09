@@ -41,7 +41,6 @@ async function cargaDeCards() {
 }
 
 // ------llamado a la funcion para ver las cards-----
-// cargaDeCards();
 
 //-----filtrado de los productos-------
 const filtrar = () => {
@@ -52,7 +51,7 @@ const filtrar = () => {
   //--la bandera es para el .info-resultado----
   let bandera = false;
   for (prod of productos) {
-    let nombre = prod.nombre;
+    let nombre = prod.nombre.toLowerCase();
     if (nombre.indexOf(texto) !== -1) {
       bandera = true;
 
@@ -64,7 +63,7 @@ const filtrar = () => {
         <h5 class="card-title">${prod.nombre}</h5>
         <p class="card-text">${prod.descripcion}</p>
         <p class="card-precio">Precio: $ ${prod.precio}</p>
-        <button type="button" id="${prod.id}" class="btn btn-card btn-info">Comprar</button>
+        <button type="button" id="${prod.id}" class="btn btn-card btn-dark">Comprar</button>
         
     </div>
   
@@ -74,13 +73,18 @@ const filtrar = () => {
   }
   //---operador avanzado, es como un if sin else----
   !bandera && (infoResultado.innerHTML = `Elemento no localizado`);
+  bandera && (infoResultado.innerHTML = "");
   inputBuscar.value = "";
   actualizarBtnAgregar();
 };
 
 botonBuscar.addEventListener("click", filtrar);
 //-----ver todo en el filtro------
-verTodo.addEventListener("click", cargaDeCards);
+verTodo.addEventListener("click", () => {
+  cardContainer.innerHTML = "";
+  infoResultado.innerHTML = "";
+  cargaDeCards();
+});
 //-----actualizar boton comprar-----
 function actualizarBtnAgregar() {
   btnAgregar = document.querySelectorAll(".btn-card");
@@ -280,7 +284,8 @@ btnNews.addEventListener("click", () => {
     }).showToast();
   } else {
     Toastify({
-      text: "su mail fue registrado correctamente",
+      // text: "su mail fue registrado correctamente",
+      text: `ingreso: ${email} gracias por registrarse!`,
       duration: 3000,
 
       close: true,
@@ -310,6 +315,10 @@ btnfin.addEventListener("click", async function () {
 
     if (email) {
       Swal.fire(`Le llegara un mail para confirmar su compra: ${email}`);
+      carrito = [];
+      actualizarCarritoUI();
+      sumadorCarrito();
+      localStorage.setItem("carritoStorage", JSON.stringify(carrito));
     }
   }
 });
