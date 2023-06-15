@@ -40,8 +40,6 @@ async function cargaDeCards() {
   actualizarBtnAgregar();
 }
 
-// ------llamado a la funcion para ver las cards-----
-
 //-----filtrado de los productos-------
 const filtrar = () => {
   cardContainer.innerHTML = "";
@@ -284,8 +282,7 @@ btnNews.addEventListener("click", () => {
     }).showToast();
   } else {
     Toastify({
-      // text: "su mail fue registrado correctamente",
-      text: `ingreso: ${email} gracias por registrarse!`,
+      text: `Su email es: ${email} gracias por registrarse!`,
       duration: 3000,
 
       close: true,
