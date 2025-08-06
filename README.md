@@ -1,6 +1,6 @@
 # 🛍️ Mini E-commerce con HTML, CSS y JavaScript
 
-Este es un proyecto de e-commerce desarrollado con tecnologías web básicas. Fue uno de los primeros proyectos realizados durante el aprendizaje de JavaScript. Aunque más sencillo que versiones posteriores, ya incluye funcionalidades interactivas importantes.
+Este es un proyecto de e-commerce desarrollado con tecnologías web básicas. Fue uno de los primeros proyectos realizados durante el aprendizaje HTML, CSS y JavaScript. Aunque más sencillo que versiones posteriores, ya incluye funcionalidades interactivas importantes.
 
 ---
 
